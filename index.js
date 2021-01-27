@@ -18,6 +18,7 @@ io.on('connection', () => {
 
 
 var io2 = require('socket.io-client');
+
 var socket = io2.connect("http://[::1]:3000", {
   query: 'token=eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1ZGIxZTEzMjBhMGMyOTM5MDA1MjUzMDUiLCJpZHBhZ2UiOiI1Y2RjMmE1Yzc1NzEyMzAwMjRlNDk3ZjEifQ.7y5LtWXc5Rxbg6Z7x6_iNtWAEuGnKdJc7qnXnarYh7U&whatsapp=true',
   // reconnection: true,
