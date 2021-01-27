@@ -1,20 +1,41 @@
+// Install express server
+const express = require('express');
+const path = require('path');
 
-const app = require('express')();
-// const server = require('http').createServer(app);
-// const io = require('socket.io')(server);
+// Initialize express app
+const app = express();
+const router = express.Router();
+
+// Serve backend routes
+app.get('/', function(req, res) {
+    res.status(200).send('Hello World API')
+});
+
+// Specify port
+const port = process.env.PORT || 5000;
+
+// Start the app
+app.listen(port, () => {
+  console.log('App started on port: ' + port);
+});
+
+
+// const app = require('express')();
+// // const server = require('http').createServer(app);
+// // const io = require('socket.io')(server);
+// // io.on('connection', () => { 
+// //   console.log("EPAAAA");
+// // });
+
+// var server = require('http').createServer().on('request', function (req, res) {
+//   res.writeHead(200);
+//   res.end('Welcome to socket.io.');
+// }).listen(3000);
+// var io = require('socket.io').listen(server);
+
 // io.on('connection', () => { 
 //   console.log("EPAAAA");
 // });
-
-var server = require('http').createServer().on('request', function (req, res) {
-  res.writeHead(200);
-  res.end('Welcome to socket.io.');
-}).listen(3000);
-var io = require('socket.io').listen(server);
-
-io.on('connection', () => { 
-  console.log("EPAAAA");
-});
 
 
 // var io2 = require('socket.io-client');
