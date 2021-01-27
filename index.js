@@ -15,17 +15,23 @@ app.get('/', function(req, res) {
 const port = process.env.PORT || 5000;
 
 // Start the app
-app.listen(port, () => {
+var server = app.listen(port, () => {
   console.log('App started on port: ' + port);
 });
 
+io = require("socket.io")(server, {
+  pingInterval: 15000,
+  pingTimeout: 30000,
+})
+
+io.on('connection', () => { 
+  console.log("EPAAAA");
+});
 
 // const app = require('express')();
 // // const server = require('http').createServer(app);
 // // const io = require('socket.io')(server);
-// // io.on('connection', () => { 
-// //   console.log("EPAAAA");
-// // });
+
 
 // var server = require('http').createServer().on('request', function (req, res) {
 //   res.writeHead(200);
