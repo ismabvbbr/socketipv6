@@ -13,6 +13,7 @@ app.get('/', function(req, res) {
 
 // Specify port
 const port = process.env.PORT || 5000;
+const port2 = process.env.PORT2 || 5001;
 
 // Start the app
 var server = app.listen(port, () => {
@@ -28,8 +29,8 @@ io.on('connection', () => {
   console.log("EPAAAA");
 });
 
-var server2 = app.listen(port, "::1", () => {
-  console.log('App started on port: ' + port);
+var server2 = app.listen(port2, "::1", () => {
+  console.log('App started on port: ' + port2);
 });
 
 io2 = require("socket.io")(server2, {
