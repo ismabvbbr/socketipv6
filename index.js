@@ -28,6 +28,25 @@ io.on('connection', () => {
   console.log("EPAAAA");
 });
 
+var server2 = app.listen(port, "::1", () => {
+  console.log('App started on port: ' + port);
+});
+
+io2 = require("socket.io")(server2, {
+  pingInterval: 15000,
+  pingTimeout: 30000,
+})
+
+io2.on('connection', () => { 
+  console.log("EPAAAA2");
+});
+
+// var server = require('http').createServer().on('request', function (req, res) {
+//   res.writeHead(200);
+//   res.end('Welcome to socket.io.');
+// }).listen(8124, '::1');
+
+
 // const app = require('express')();
 // // const server = require('http').createServer(app);
 // // const io = require('socket.io')(server);
